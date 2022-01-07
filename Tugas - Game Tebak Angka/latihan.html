@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Gama Prabowo</h1>
+    <button id="btn">Click</button>
+  </body>
+  <script>
+    //   Fucntion Declartion
+    function deklarasi() {
+      console.log("Hello World!");
+    }
+
+    // Function Expression
+    const ekspresi = function () {
+      console.log("Hello World!");
+    };
+
+    // Arrow Fucntion
+    const arrowFunction = () => {
+      console.log("Hello World!");
+    };
+    deklarasi();
+
+    let btn = document.getElementById("btn");
+    btn.addEventListener("click", () => {
+      console.log(this);
+    });
+  </script>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Tebak Angka</title>
+    <style>
+      .button {
+        width: 70px;
+        height: 70px;
+        background-color: silver;
+        border: 2px solid black;
+        padding: 0 10px;
+        margin: 5px;
+        cursor: pointer;
+      }
+
+      body {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Game Tebak Angka sederhana</h1>
+    <div>
+      <button class="button" onclick="a('button1')" id="button1">1</button>
+      <button class="button" onclick="a('button2')" id="button2">2</button>
+      <button class="button" onclick="a('button3')" id="button3">3</button>
+    </div>
+    <div style="padding-top: 50px">
+      <input type="button" value="Refresh" onClick="window.location.reload()" />
+      <button onclick="answer('jwbBenar')">Buka Jawaban</button>
+      <h4 id="jwbBenar"></h4>
+    </div>
+    <div>
+      <h3 id="jml_klik"></h3>
+    </div>
+    <script>
+      var angka = Math.floor(Math.random() * 3) + 1;
+      var random = "button" + angka;
+      var jumlah = 0;
+      var ketemu = "belum";
+      function answer(id) {
+        var jwb = "Jawaban benar adalah = " + angka;
+        var e = document.getElementById(id);
+        e.innerHTML = jwb;
+        if (e.style.display == "none" || e.style.display == "") {
+          e.style.display = "block";
+        } else {
+          e.style.display = "none";
+        }
+      }
+      function a(id) {
+        if (random == id) {
+          document.getElementById(id).style.background = "green";
+          jumlah++;
+          document.getElementById("jml_klik").innerHTML =
+            "jumlah tebakan = " + jumlah;
+          ketemu = "sudah";
+          if (ketemu == "sudah" && jumlah <= 3) {
+            document.getElementById("menang").innerHTML =
+              "Selamat Anda Benar!!!";
+          }
+        } else {
+          document.getElementById(id).style.background = "red";
+          jumlah++;
+          document.getElementById("jml_klik").innerHTML =
+            "jumlah tebakan = " + jumlah;
+          if (ketemu == "belum" && jumlah >= 3) {
+            alert("maaf anda gagal tebakan akan di acak kembali");
+            location.reload();
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
